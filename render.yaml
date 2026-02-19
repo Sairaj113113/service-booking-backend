@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: service-booking-backend
+    runtime: java
+    plan: free
+    buildCommand: chmod +x mvnw && ./mvnw clean install
+    startCommand: java -jar target/app.jar
+    envVars:
+      - key: JAVA_VERSION
+        value: 17
+
