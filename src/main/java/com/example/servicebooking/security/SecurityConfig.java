@@ -1,9 +1,8 @@
 package com.example.servicebooking.security;
 
-import org.springframework.context.annotation.Lazy;
-
 import com.example.servicebooking.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -33,10 +32,11 @@ import java.util.List;
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-     @Lazy
-    private final JwtAuthenticationFilter jwtAuthFilter;
+
     private final UserRepository userRepository;
 
+    @Autowired
+    private JwtAuthenticationFilter jwtAuthFilter;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
