@@ -1,5 +1,7 @@
 package com.example.servicebooking.security;
 
+import org.springframework.context.annotation.Lazy;
+
 import com.example.servicebooking.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -31,7 +33,7 @@ import java.util.List;
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-
+     @Lazy
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final UserRepository userRepository;
 
